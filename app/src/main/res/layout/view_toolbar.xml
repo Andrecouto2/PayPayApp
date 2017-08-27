@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_margin_48_dp">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/relative_search_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/default_margin_10_dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/image_close_search_action"
+                    android:layout_width="@dimen/default_margin_20_dp"
+                    android:layout_height="@dimen/default_margin_20_dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_back"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/default_margin_10_dp"
+                    android:layout_toRightOf="@id/image_close_search_action"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/edit_search"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="1"/>
+
+                    <ImageView
+                        android:id="@+id/image_clear_search_action"
+                        android:layout_width="@dimen/default_margin_20_dp"
+                        android:layout_height="@dimen/default_margin_20_dp"
+                        android:layout_marginLeft="@dimen/default_margin_10_dp"
+                        android:contentDescription="Limpar busca"
+                        android:src="@drawable/ic_close"
+                        android:visibility="gone"
+                        tools:visibility="visible"/>
+                        <!--app:srcCompat="@drawable/ic_close"-->
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/image_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/default_margin_10_dp"
+                android:background="@drawable/view_selector"
+                android:contentDescription="Pesquisar"
+                android:padding="@dimen/default_margin_10_dp"
+                android:src="@drawable/ic_busca"
+                android:visibility="gone"/>
+
+            <RelativeLayout
+                android:id="@+id/relative_chat_action"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/image_chat_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@null"
+                    android:src="@drawable/barbershop"/>
+
+                <br.com.andrecouto.paypay.view.custom.TypefacedTextView
+                    android:id="@+id/text_unread_messages_number"
+                    style="@style/text_default_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/image_chat_action"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="-3dp"
+                    android:background="@drawable/ic_bolinha_notificacao"
+                    android:gravity="center"
+                    android:textColor="@color/gray_464646"
+                    android:textSize="10sp"
+                    android:visibility="gone"/>
+
+                <br.com.andrecouto.paypay.view.custom.TypefacedTextView
+                    android:id="@+id/text_action_am_online"
+                    style="@style/text_default_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="início"
+                    android:textColor="#ff8a00"
+                    android:textSize="14sp"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <br.com.andrecouto.paypay.view.custom.TypefacedTextView
+            android:id="@+id/toolbar_title"
+            style="@style/text_font_roboto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/gray_5B5149"
+            android:textSize="@dimen/default_text_16_sp"
+            tools:text="Teste"/>
+
+    <View
+        android:id="@+id/toolbar_divider"
+        style="@style/divider"
+        android:layout_below="@id/toolbar"/>
+
+    <View
+        android:id="@+id/toolbar_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent_black_030303"
+        android:clickable="true"
+        android:visibility="gone"/>
+</RelativeLayout>

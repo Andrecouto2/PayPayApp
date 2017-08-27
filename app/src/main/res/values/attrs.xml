@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TypefacedTextView">
+        <attr name="typeface" format="string"/>
+    </declare-styleable>
+    <attr name="img_avatar_menu" format="reference"/>
+    <attr name="themed_button_borderless" format="reference"/>
+    <attr name="txt_default_color" format="reference" />
+</resources>

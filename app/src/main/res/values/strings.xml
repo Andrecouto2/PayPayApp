@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">PayPay</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="hint_login">Email</string>
+    <string name="hint_password">Senha</string>
+    <string name="ordem_de_servi_o">Ordem de Serviço</string>
+    <string name="circular">Circular</string>
+    <string name="funcion_rio">Funcionário</string>
+    <string name="ok">OK</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="menu_profile_back"></string>
+    <string name="menu_profile_option_icon_first"></string>
+    <string name="menu_profile_option_icon_second"></string>
+    <string name="menu_profile_option_icon_third"></string>
+    <string name="menu_profile_option_icon_fourth"></string>
+    <string name="menu_profile_option_icon_fifth"></string>
+
+    <!--Header-->
+    <string name="header_search_icon"></string>
+    <string name="header_search_filter"></string>
+    <string name="header_notification_icon"></string>
+    <string name="header_avatar_label">olá, %1$s</string>
+    <string name="header_email">E-mail: %1$s</string>
+    <string name="header_last_access">último acesso foi em  %1$s às %2$s</string>
+    <string name="menu_profile_option_text_first">editar minha foto</string>
+    <string name="menu_profile_option_text_first_with_picture">alterar foto</string>
+
+    //facebook login
+    <string name="facebook_app_id">1667532429926734</string>
+    <string name="fb_login_protocol_scheme">fb1667532429926734</string>
+    <string name="chat">Chat</string>
+    <string name="contatos">Contatos</string>
+    <string name="descobrir">Descobrir</string>
+    <string name="eu">Eu</string>
+    <string name="sair">Sair</string>
+
+</resources>
