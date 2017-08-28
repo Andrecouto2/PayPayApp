@@ -35,7 +35,7 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
     UserManager userManager;
     Context context;
     TextIconView iconFilter;
-    TextIconView iconOpenClose;
+    ImageView iconOpenClose;
     ImageView imageAvatar;
     ImageView imageAvatarMenuProfile;
     TextView textInitialsNameAvatar;
@@ -49,7 +49,7 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
     TextView textLastAccessMenuProfile;
     TextView textFirstMenuOption;
     TextView textFourthMenuOption;
-    TextIconView buttonBack;
+    ImageView buttonBack;
     RelativeLayout viewMenuProfile;
     RelativeLayout viewMenuProfileAnimate;
     RelativeLayout relativeMenuProfileDetails;
@@ -82,8 +82,8 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
     public void init() {
         View v = inflate(getContext(), R.layout.view_header, this);
         ButterKnife.bind(this,v);
-        iconFilter = (TextIconView) findViewById(R.id.text_view_filter);
-        iconOpenClose = (TextIconView) findViewById(R.id.text_view_open_close);
+        //iconFilter = (TextIconView) findViewById(R.id.text_view_filter);
+        iconOpenClose = (ImageView) findViewById(R.id.img_view_open_close);
         imageAvatar = (ImageView) findViewById(R.id.image_view_avatar_picture);
         imageAvatarMenuProfile = (ImageView) findViewById(R.id.image_view_menu_profile_avatar);
         textInitialsNameAvatar = (TextView)  findViewById(R.id.text_view_avatar_initials_name);
@@ -97,7 +97,7 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
         textLastAccessMenuProfile = (TextView) findViewById(R.id.text_view_menu_profile_last_access);
         textFirstMenuOption = (TextView) findViewById(R.id.text_view_first_menu_option);
         textFourthMenuOption = (TextView) findViewById(R.id.text_view_fourth_menu_option);
-        buttonBack = (TextIconView) findViewById(R.id.text_view_menu_profile_back);
+        buttonBack = (ImageView) findViewById(R.id.img_view_menu_profile_back);
         viewMenuProfile = (RelativeLayout) findViewById(R.id.relative_menu_profile);
         viewMenuProfileAnimate = (RelativeLayout) findViewById(R.id.relative_menu_profile_animate);
         relativeMenuProfileDetails = (RelativeLayout) findViewById(R.id.relative_menu_profile_details);
@@ -158,7 +158,7 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
     /**
      * Clique em voltar.
      */
-    @OnClick(R.id.text_view_menu_profile_back)
+    @OnClick(R.id.img_view_menu_profile_back)
     public void backClicked() {
         backClickMenuProfile();
         dispatchOnTouchHeaderListener();
