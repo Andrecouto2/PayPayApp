@@ -3,6 +3,7 @@ package br.com.andrecouto.paypay.api;
 import br.com.andrecouto.paypay.entity.AccessToken;
 import br.com.andrecouto.paypay.entity.User;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -22,4 +23,7 @@ public interface APIClient {
     Call<User> getUser(
             @Query("cellphone") String cellphone
     );
+
+    @POST("api/Usuario")
+    Call<User> registerUser(@Body User user);
 }

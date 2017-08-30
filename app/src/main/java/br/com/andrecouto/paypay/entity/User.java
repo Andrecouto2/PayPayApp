@@ -9,6 +9,7 @@ public class User {
     private String email;
     private String nome;
     private String senha;
+    private String cpf;
 
     public long getIdUsuario() {
         return idUsuario;
@@ -48,5 +49,13 @@ public class User {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }
