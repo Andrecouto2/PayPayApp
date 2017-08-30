@@ -5,9 +5,9 @@
     <color name="secondary_text">#757575</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
-    <color name="colorPrimary">#FF5722</color>
-    <color name="colorPrimaryDark">#E64A19</color>
-    <color name="colorAccent">#009688</color>
+    <color name="colorPrimary">#7093DB</color>
+    <color name="colorPrimaryDark">#45A9BB</color>
+    <color name="colorAccent">#FFFF00</color>
     <color name="colorPrimaryLight">#FFCCBC</color>
     <color name="background_splash">#000</color>
     <color name="white">#fff</color>
@@ -62,6 +62,9 @@
     <color name="white_66ffffff">#66ffffff</color>
     <color name="gray_7A6D60">#7A6D60</color>
     <color name="gray_bfaca6">#bfaca6</color>
+    <color name="dark_blue_turquoise">#7093DB</color>
+    <color name="yellow_FFB000">#FFB000</color>
+    <color name="yellow_FFFF00">#FFFF00</color>
     <color name="ripple_color">#14585149</color>
 
 </resources>

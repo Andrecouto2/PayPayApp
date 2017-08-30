@@ -123,7 +123,7 @@
                     android:contentDescription="@null"
                     android:padding="@dimen/default_margin_8_dp"
                     android:gravity="center"
-                    android:src="@drawable/ic_keyboard_arrow_up_black_48dp"/>
+                    android:src="@drawable/ic_arrow_up"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -155,8 +155,8 @@
                         android:layout_alignParentRight="true"
                         android:contentDescription="@null"
                         android:gravity="center"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_keyboard_arrow_down_black_48dp"
+                        android:padding="@dimen/default_margin_12_dp"
+                        android:src="@drawable/ic_arrow_down"
                         android:textSize="@dimen/default_text_24_sp" />
 
                     <RelativeLayout

@@ -14,7 +14,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="hint_login">Email</string>
+    <string name="hint_login">Login</string>
     <string name="hint_password">Senha</string>
     <string name="ordem_de_servi_o">Ordem de Serviço</string>
     <string name="circular">Circular</string>
@@ -49,5 +49,6 @@
     <string name="descobrir">Descobrir</string>
     <string name="eu">Eu</string>
     <string name="sair">Sair</string>
+    <string name="entrar">ENTRAR</string>
 
 </resources>
