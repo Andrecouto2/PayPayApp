@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
+import br.com.andrecouto.paypay.fragment.dashboard.ChatFragment;
 import br.com.andrecouto.paypay.fragment.dashboard.MeDashBoardFragment;
 import br.com.andrecouto.paypay.util.FragmentUtils;
 
@@ -21,7 +22,7 @@ public class HomeActivity extends BaseLoggedActivity {
         setContentView(R.layout.activity_home);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        FragmentUtils.replaceFragment(getSupportFragmentManager(), new ChatFragment(), R.id.frame_home_container, true);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -31,7 +32,7 @@ public class HomeActivity extends BaseLoggedActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_chat:
-
+                    FragmentUtils.replaceFragment(getSupportFragmentManager(), new ChatFragment(), R.id.frame_home_container, true);
                     return true;
                 case R.id.navigation_contacts:
 

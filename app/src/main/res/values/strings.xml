@@ -50,5 +50,7 @@
     <string name="eu">Eu</string>
     <string name="sair">Sair</string>
     <string name="entrar">ENTRAR</string>
+    <string name="cpf">cpf</string>
+    <string name="telefone">telefone</string>
 
 </resources>

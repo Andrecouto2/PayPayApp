@@ -41,6 +41,21 @@ public class UserViewModel extends BaseViewModel implements IViewModel {
 
     }
 
+    public void registerUser(User user) {
+
+        userService.registerUser(user, new CallBack<User>() {
+            @Override
+            public void onSuccess(User response) {
+                mListener.onUserResponse(response);
+            }
+
+            @Override
+            public void onError(String header, String message) {
+                if (mListener != null) mListener.onError(header, message);
+            }
+        });
+    }
+
     @Override
     public void onResume() {
 

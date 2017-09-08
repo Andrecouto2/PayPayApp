@@ -14,9 +14,9 @@ import br.com.andrecouto.paypay.manager.UserManager;
 public class BaseLoggedFragment extends BaseFragment {
 
     @Inject
-    AuthenticationManager authenticationManager;
+    public AuthenticationManager authenticationManager;
     @Inject
-    UserManager userManager;
+    public UserManager userManager;
 
     @Override
     public String tag() {

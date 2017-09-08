@@ -21,7 +21,7 @@ public interface APIClient {
 
     @GET("api/Usuario")
     Call<User> getUser(
-            @Query("cellphone") String cellphone
+            @Query("email") String email
     );
 
     @POST("api/Usuario")

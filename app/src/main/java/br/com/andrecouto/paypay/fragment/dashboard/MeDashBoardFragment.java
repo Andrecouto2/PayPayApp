@@ -36,6 +36,7 @@ public class MeDashBoardFragment extends BaseLoggedFragment {
                     } else {
                        /* ViewCompat.setImportantForAccessibility(recyclerViewCards, ViewCompat
                                 .IMPORTANT_FOR_ACCESSIBILITY_NO);*/
+
                     }
                 }
 

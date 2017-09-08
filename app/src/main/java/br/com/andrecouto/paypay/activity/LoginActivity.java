@@ -3,10 +3,7 @@ package br.com.andrecouto.paypay.activity;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
-
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -15,14 +12,10 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Arrays;
-
 import javax.inject.Inject;
-
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.view.custom.ProgressBarView;
@@ -129,12 +122,18 @@ public class LoginActivity extends ViewModelActivity implements LoginViewModel.L
     protected void onPause() {
         super.onPause();
         mLoginViewModel.clearListener();
+        mUserViewModel.clearListener();
     }
 
     @OnClick(R.id.btnLogin)
     public void Login(View v) {
         showLoadingDialog();
         mLoginViewModel.getToken(txtInputLogin.getEditText().getText().toString(), txtInputPassword.getEditText().getText().toString(), "password");
+    }
+
+    @OnClick(R.id.txt_nao_cadastrado)
+    public void Register(View v) {
+        startActivity(new Intent(this,RegisterActivity.class));
     }
 
     @Override

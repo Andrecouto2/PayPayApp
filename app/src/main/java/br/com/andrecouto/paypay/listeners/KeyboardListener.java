@@ -1,4 +1,4 @@
-package br.com.andrecouto.paypay.activity;
+package br.com.andrecouto.paypay.listeners;
 
 public interface KeyboardListener {
 

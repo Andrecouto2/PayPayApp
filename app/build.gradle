@@ -18,10 +18,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    defaultConfig {
+        multiDexEnabled true
+    }
 }
 
 repositories {
     mavenCentral()
+    maven {
+        url "file:///C:/rep/"
+    }
+    maven {
+        url 'https://maven.google.com'
+    }
 }
 
 dependencies {
@@ -32,11 +41,9 @@ dependencies {
     // for testing locally with junit
     // for instrumentation (if we use things that require a device like location, ble, camera, etc)
 
-
     testCompile 'junit:junit:4.12'
 
-
-    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -49,6 +56,16 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile("br.com.andrecouto.kotlin:chatlib:1.0.4") {
+        transitive = true
+        exclude group: 'com.google.android.gms', module: 'play-services'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'design'
+        exclude module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
     testCompile 'junit:junit:4.12'
     testCompile 'org.robolectric:robolectric:3.0'
     testCompile 'org.mockito:mockito-core:1.10.19'
@@ -59,5 +76,6 @@ dependencies {
     apt 'com.google.dagger:dagger-compiler:2.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.6.0'
     provided 'javax.annotation:jsr250-api:1.0'
+
 }
 

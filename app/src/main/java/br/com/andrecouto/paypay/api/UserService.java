@@ -26,6 +26,44 @@ public class UserService {
         getUser(cellphone, callBack, false);
     }
 
+    public void registerUser(final User user, final CallBack<User> callBack) {
+        registerUser(user, callBack, false);
+    }
+
+    public void registerUser(final User user, final CallBack<User> callBack, boolean isCancelable) {
+        Call<User> call = mApi.registerUser(user);
+        if (isCancelable) {
+            if (mGetUser.containsKey(user.getEmail())) return;
+            mGetUser.put(user.getEmail(), call);
+        }
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                mGetUser.remove(user.getEmail());
+                if (response.isSuccessful()) {
+                    callBack.onSuccess(response.body());
+                } else {
+                    JSONObject jObjError = new JSONObject();
+                    try {
+                        jObjError = new JSONObject(response.errorBody().string());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    callBack.onError("Atenção!!!", jObjError.optString("error_description"));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                mGetUser.remove(user.getEmail());
+                callBack.onError("Error", t.getMessage());
+            }
+
+        });
+    }
+    
     public void getUser(final String cellphone, final CallBack<User> callBack, boolean isCancelable) {
         Call<User> call = mApi.getUser(cellphone);
         if (isCancelable) {

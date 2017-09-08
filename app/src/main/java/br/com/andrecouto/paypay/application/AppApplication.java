@@ -3,6 +3,8 @@ package br.com.andrecouto.paypay.application;
 
 import android.app.Application;
 
+import br.com.andrecouto.kotlin.chatlib.socketio.listener.AppSocketListener;
+
 
 public class AppApplication extends Application {
     private ApplicationComponent mComponent;
@@ -15,7 +17,7 @@ public class AppApplication extends Application {
         mComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule())
                 .build();
-
+        initSocketChatMesengerListener();
     }
 
     public ApplicationComponent getComponent() {
@@ -28,5 +30,19 @@ public class AppApplication extends Application {
 
     public void setMenuProfileOpen(boolean menuProfileOpen) {
         isMenuProfileOpen = menuProfileOpen;
+    }
+
+    public void destroySocketChatMessengerListener() {
+        AppSocketListener.Companion.getInstance().destroy();
+    }
+
+    private void initSocketChatMesengerListener() {
+        AppSocketListener.Companion.getInstance().initialize(getApplicationContext());
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        destroySocketChatMessengerListener();
     }
 }

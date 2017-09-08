@@ -145,7 +145,7 @@
                     android:id="@+id/relative_menu_profile_header"
                     android:layout_width="match_parent"
                     android:layout_height="208dp"
-                    android:background="@color/gray_EFE9E5">
+                    android:background="@color/colorPrimaryLight">
 
                     <ImageView
                         android:id="@+id/img_view_menu_profile_back"
@@ -305,7 +305,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/size_1dp"
                                 android:layout_alignParentBottom="true"
-                                android:background="@color/gray_EFE9E5" />
+                                android:background="@color/colorPrimaryLight" />
 
                         </RelativeLayout>
 
@@ -345,7 +345,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/size_1dp"
                                 android:layout_alignParentBottom="true"
-                                android:background="@color/gray_EFE9E5" />
+                                android:background="@color/colorPrimaryLight" />
 
                         </RelativeLayout>
 
@@ -385,7 +385,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/size_1dp"
                                 android:layout_alignParentBottom="true"
-                                android:background="@color/gray_EFE9E5" />
+                                android:background="@color/colorPrimaryLight" />
 
                         </RelativeLayout>
 
@@ -425,7 +425,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/size_1dp"
                                 android:layout_alignParentBottom="true"
-                                android:background="@color/gray_EFE9E5" />
+                                android:background="@color/colorPrimaryLight" />
 
                         </RelativeLayout>
 
@@ -465,7 +465,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/size_1dp"
                                 android:layout_alignParentBottom="true"
-                                android:background="@color/gray_EFE9E5" />
+                                android:background="@color/colorPrimaryLight" />
 
                         </RelativeLayout>
 

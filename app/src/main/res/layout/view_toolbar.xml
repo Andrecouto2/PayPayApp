@@ -102,7 +102,6 @@
                     android:layout_alignTop="@+id/image_chat_action"
                     android:layout_marginRight="2dp"
                     android:layout_marginTop="-3dp"
-                    android:background="@drawable/ic_bolinha_notificacao"
                     android:gravity="center"
                     android:textColor="@color/gray_464646"
                     android:textSize="10sp"
