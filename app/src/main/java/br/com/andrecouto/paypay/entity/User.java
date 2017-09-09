@@ -1,9 +1,12 @@
 package br.com.andrecouto.paypay.entity;
 
-import java.math.BigInteger;
+import java.io.Serializable;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-public class User {
+public class User extends RealmObject implements Serializable {
 
+    @PrimaryKey
     private long idUsuario;
     private String celular;
     private String email;

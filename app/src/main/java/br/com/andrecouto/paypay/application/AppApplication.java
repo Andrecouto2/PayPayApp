@@ -2,6 +2,7 @@ package br.com.andrecouto.paypay.application;
 
 
 import android.app.Application;
+import android.content.Context;
 
 import br.com.andrecouto.kotlin.chatlib.socketio.listener.AppSocketListener;
 
@@ -9,11 +10,11 @@ import br.com.andrecouto.kotlin.chatlib.socketio.listener.AppSocketListener;
 public class AppApplication extends Application {
     private ApplicationComponent mComponent;
     private boolean isMenuProfileOpen = false;
-
+    public static Context appContext;
     @Override
     public void onCreate() {
         super.onCreate();
-
+        appContext = getApplicationContext();
         mComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule())
                 .build();

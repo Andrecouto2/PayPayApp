@@ -1,9 +1,14 @@
 package br.com.andrecouto.paypay.entity;
 
 import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-public class AccessToken {
+public class AccessToken extends RealmObject implements Serializable {
 
+    @PrimaryKey
+    private long id;
     @SerializedName("access_token")
     private String accessToken;
     @SerializedName("token_type")
@@ -53,5 +58,13 @@ public class AccessToken {
 
     public void setExpiresIn(Integer expiresIn) {
         this.expiresIn = expiresIn;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

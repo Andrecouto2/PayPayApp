@@ -18,6 +18,8 @@ import java.util.Arrays;
 import javax.inject.Inject;
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
+import br.com.andrecouto.paypay.persistence.AccessTokenDAO;
+import br.com.andrecouto.paypay.persistence.UserDAO;
 import br.com.andrecouto.paypay.view.custom.ProgressBarView;
 import br.com.andrecouto.paypay.entity.AccessToken;
 import br.com.andrecouto.paypay.entity.User;
@@ -57,6 +59,7 @@ public class LoginActivity extends ViewModelActivity implements LoginViewModel.L
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        AccessTokenDAO.setContext(this);
         //FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         loginButton.setReadPermissions(Arrays.asList(
@@ -144,13 +147,15 @@ public class LoginActivity extends ViewModelActivity implements LoginViewModel.L
 
     @Override
     public void onAccessToken(AccessToken accessToken) {
+        AccessTokenDAO.insert(accessToken);
         authenticationManager.setAccessToken(accessToken);
         mUserViewModel.getUser(txtInputLogin.getEditText().getText().toString());
     }
 
     @Override
     public void onUserResponse(User user) {
-      startHome(user);
+        UserDAO.insert(user);
+        startHome(user);
     }
 
     private void startHome(User user) {
