@@ -6,10 +6,6 @@
              android:layout_height="match_parent"
              tools:context="br.com.andrecouto.paypay.fragment.dashboard.ChatFragment">
 
-    <br.com.andrecouto.paypay.view.custom.HeaderView
-        android:id="@+id/header_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
     <ScrollView
         android:id="@+id/scrollview_attendance_fragment"
@@ -49,5 +45,10 @@
 
         </android.support.v7.widget.CardView>
     </ScrollView>
+
+    <br.com.andrecouto.paypay.view.custom.HeaderView
+        android:id="@+id/header_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </FrameLayout>
