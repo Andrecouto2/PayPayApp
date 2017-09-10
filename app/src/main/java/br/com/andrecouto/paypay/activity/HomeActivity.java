@@ -9,11 +9,11 @@ import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.fragment.dashboard.ChatFragment;
 import br.com.andrecouto.paypay.fragment.dashboard.MeDashBoardFragment;
+import br.com.andrecouto.paypay.sessionmanager.SessionManager;
 import br.com.andrecouto.paypay.util.FragmentUtils;
 
 
 public class HomeActivity extends BaseLoggedActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,7 @@ public class HomeActivity extends BaseLoggedActivity {
         }
 
     };
+
 
 
 }

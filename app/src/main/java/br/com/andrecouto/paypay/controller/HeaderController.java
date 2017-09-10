@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.helper.ManagerHelper;
+import br.com.andrecouto.paypay.sessionmanager.SessionManager;
 import br.com.andrecouto.paypay.util.TabBarUtils;
 import br.com.andrecouto.paypay.view.custom.CircleTransformation;
 import br.com.andrecouto.paypay.view.custom.HeaderInterface;
@@ -27,12 +28,13 @@ public class HeaderController {
     private User user;
     private HeaderInterface headerInterface;
     private Context context;
+    private SessionManager sessionManager;
 
     public void init(HeaderInterface i, User user, Context context) {
         headerInterface = i;
         this.user = user;
         this.context = context;
-
+        sessionManager = new SessionManager(context);
 
         setupAvatar();
         setVisibility();
@@ -156,6 +158,10 @@ public class HeaderController {
         });
         headerInterface.setAnimateMenuProfile(animation);
         TabBarUtils.showTabBar(context);
+    }
+
+    public void logout() {
+        sessionManager.logoutUser();
     }
 
 }

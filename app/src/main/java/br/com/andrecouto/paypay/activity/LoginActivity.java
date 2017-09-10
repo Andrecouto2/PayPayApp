@@ -20,6 +20,7 @@ import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.persistence.AccessTokenDAO;
 import br.com.andrecouto.paypay.persistence.UserDAO;
+import br.com.andrecouto.paypay.sessionmanager.SessionManager;
 import br.com.andrecouto.paypay.view.custom.ProgressBarView;
 import br.com.andrecouto.paypay.entity.AccessToken;
 import br.com.andrecouto.paypay.entity.User;
@@ -52,6 +53,7 @@ public class LoginActivity extends ViewModelActivity implements LoginViewModel.L
     @BindView(R.id.facebook_login_button)
     public LoginButton loginButton;
     CallbackManager callbackManager;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +61,7 @@ public class LoginActivity extends ViewModelActivity implements LoginViewModel.L
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        AccessTokenDAO.setContext(this);
+        sessionManager = new SessionManager(this.getBaseContext());
         //FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         loginButton.setReadPermissions(Arrays.asList(
@@ -147,6 +149,7 @@ public class LoginActivity extends ViewModelActivity implements LoginViewModel.L
 
     @Override
     public void onAccessToken(AccessToken accessToken) {
+        sessionManager.setToken(accessToken.getAccessToken());
         AccessTokenDAO.insert(accessToken);
         authenticationManager.setAccessToken(accessToken);
         mUserViewModel.getUser(txtInputLogin.getEditText().getText().toString());
@@ -154,6 +157,7 @@ public class LoginActivity extends ViewModelActivity implements LoginViewModel.L
 
     @Override
     public void onUserResponse(User user) {
+        sessionManager.createLoginSession(user.getNome(), user.getEmail());
         UserDAO.insert(user);
         startHome(user);
     }

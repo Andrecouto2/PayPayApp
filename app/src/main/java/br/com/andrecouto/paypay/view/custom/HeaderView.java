@@ -140,7 +140,8 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
      */
     @OnClick(R.id.relative_fifth_menu_option)
     public void fifthMenuOptionClicked() {
-        ((BaseLoggedActivity ) context).finish();
+        //((BaseLoggedActivity ) context).finish();
+        headerHelper.logout();
         LoginManager.getInstance().logOut();
     }
 

@@ -7,6 +7,7 @@ import android.content.SharedPreferences.Editor;
 
 import java.util.HashMap;
 
+import br.com.andrecouto.paypay.activity.HomeActivity;
 import br.com.andrecouto.paypay.activity.LoginActivity;
 
 public class SessionManager {
@@ -27,10 +28,14 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    public void createLoginSession(String name, String email, String accessToken){
+    public void createLoginSession(String name, String email){
         editor.putBoolean(IS_LOGIN, true);
         editor.putString(KEY_NAME, name);
         editor.putString(KEY_EMAIL, email);
+        editor.commit();
+    }
+
+    public void setToken(String accessToken) {
         editor.putString(KEY_ACCESSTOKEN, accessToken);
         editor.commit();
     }
@@ -49,6 +54,14 @@ public class SessionManager {
         editor.commit();
 
         Intent i = new Intent(_context, LoginActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        _context.startActivity(i);
+    }
+
+    public void loginUser() {
+
+        Intent i = new Intent(_context, HomeActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         _context.startActivity(i);

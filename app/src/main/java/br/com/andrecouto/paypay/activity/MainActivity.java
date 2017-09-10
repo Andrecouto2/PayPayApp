@@ -9,16 +9,23 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import br.com.andrecouto.paypay.R;
+import br.com.andrecouto.paypay.persistence.AccessTokenDAO;
+import br.com.andrecouto.paypay.persistence.UserDAO;
+import br.com.andrecouto.paypay.sessionmanager.SessionManager;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private final int SPLASH_DISPLAY_LENGTH = 3500;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AccessTokenDAO.setContext(this);
+        UserDAO.setContext(this);
+        sessionManager = new SessionManager(this.getBaseContext());
         carregar();
     }
 
@@ -34,12 +41,17 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this,
-                        LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);
-                finish();
+                checkSession();
             }
         }, SPLASH_DISPLAY_LENGTH);
+    }
+
+    private void checkSession() {
+        if(sessionManager.isLoggedIn()) {
+            sessionManager.loginUser();
+        } else {
+            sessionManager.logoutUser();
+        }
+        finish();
     }
 }

@@ -10,6 +10,9 @@ import javax.inject.Inject;
 
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
+import br.com.andrecouto.paypay.persistence.AccessTokenDAO;
+import br.com.andrecouto.paypay.persistence.UserDAO;
+import br.com.andrecouto.paypay.sessionmanager.SessionManager;
 import br.com.andrecouto.paypay.view.custom.HeaderView;
 import br.com.andrecouto.paypay.manager.AuthenticationManager;
 import br.com.andrecouto.paypay.manager.UserManager;
@@ -21,11 +24,14 @@ public class BaseLoggedActivity extends BaseActivity {
     AuthenticationManager authenticationManager;
     @Inject
     UserManager userManager;
+    public SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ((AppApplication) getApplicationContext()).getComponent().inject(BaseLoggedActivity.this);
         super.onCreate(savedInstanceState);
+        sessionManager = new SessionManager(this);
+        checkSession();
     }
 
     public static HeaderView getHeaderView(Context context) {
@@ -49,5 +55,12 @@ public class BaseLoggedActivity extends BaseActivity {
         }
 
         return null;
+    }
+
+    private void checkSession() {
+        if(sessionManager.isLoggedIn()) {
+           authenticationManager.setAccessToken(AccessTokenDAO.selectAccesToken(sessionManager.getUserDetails().get(SessionManager.KEY_ACCESSTOKEN)));
+           userManager.setUser(UserDAO.selectUser(sessionManager.getUserDetails().get(SessionManager.KEY_EMAIL)));
+        }
     }
 }
