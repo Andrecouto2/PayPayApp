@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "144539625341",
+    "firebase_url": "https://paypay-31ecc.firebaseio.com",
+    "project_id": "paypay-31ecc",
+    "storage_bucket": "paypay-31ecc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144539625341:android:714a753139de3c9a",
+        "android_client_info": {
+          "package_name": "br.com.andrecouto.paypay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144539625341-d03o0tktl1o1fq3vhjf4uc6qes27m81v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwp8nAhjcUdL8-ndkRgWtdg_1rzNtGMX8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
