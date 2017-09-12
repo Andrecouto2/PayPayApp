@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.fragment.dashboard.ChatFragment;
+import br.com.andrecouto.paypay.fragment.dashboard.DiscoveryFragment;
 import br.com.andrecouto.paypay.fragment.dashboard.MeDashBoardFragment;
 import br.com.andrecouto.paypay.sessionmanager.SessionManager;
 import br.com.andrecouto.paypay.util.FragmentUtils;
@@ -38,7 +39,7 @@ public class HomeActivity extends BaseLoggedActivity {
 
                     return true;
                 case R.id.navigation_compass:
-
+                    FragmentUtils.replaceFragment(getSupportFragmentManager(), new DiscoveryFragment(), R.id.frame_home_container, true);
                     return true;
                 case R.id.navigation_avatar:
                     FragmentUtils.replaceFragment(getSupportFragmentManager(), new MeDashBoardFragment(), R.id.frame_home_container, true);
