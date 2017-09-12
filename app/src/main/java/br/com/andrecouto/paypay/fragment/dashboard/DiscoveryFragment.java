@@ -36,8 +36,6 @@ public class DiscoveryFragment extends BaseLoggedFragment implements OnMapReadyC
 
     private LocationRequest mLocationRequest;
 
-    private static final int REQUEST_LOCATION = 2;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
