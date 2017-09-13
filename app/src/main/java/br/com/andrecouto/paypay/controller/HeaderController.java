@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
+import br.com.andrecouto.paypay.fragment.AboutDialog;
 import br.com.andrecouto.paypay.fragment.dashboard.ChatDashBoardFragment;
 import br.com.andrecouto.paypay.fragment.dashboard.DiscoveryDashBoardFragment;
 import br.com.andrecouto.paypay.fragment.dashboard.MeDashBoardFragment;
@@ -182,6 +183,10 @@ public class HeaderController {
     public void goMe() {
         FragmentUtils.replaceFragment( ((FragmentActivity) context).getSupportFragmentManager(), new MeDashBoardFragment(), R.id.frame_home_container, true);
         TabBarUtils.showTabBar(context);
+    }
+
+    public void goAbout() {
+        AboutDialog.showAbout(((FragmentActivity) context).getSupportFragmentManager());
     }
 
 }

@@ -20,21 +20,11 @@
     <string name="circular">Circular</string>
     <string name="funcion_rio">Funcionário</string>
     <string name="ok">OK</string>
+    <string name="about_dialog_text">Desenvolvedor: André Couto\nVersão %s</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="menu_profile_back"></string>
-    <string name="menu_profile_option_icon_first"></string>
-    <string name="menu_profile_option_icon_second"></string>
-    <string name="menu_profile_option_icon_third"></string>
-    <string name="menu_profile_option_icon_fourth"></string>
-    <string name="menu_profile_option_icon_fifth"></string>
-
-    <!--Header-->
-    <string name="header_search_icon"></string>
-    <string name="header_search_filter"></string>
-    <string name="header_notification_icon"></string>
     <string name="header_avatar_label">olá, %1$s</string>
     <string name="header_email">E-mail: %1$s</string>
     <string name="header_last_access">último acesso foi em  %1$s às %2$s</string>
@@ -52,5 +42,6 @@
     <string name="entrar">ENTRAR</string>
     <string name="cpf">cpf</string>
     <string name="telefone">telefone</string>
+    <string name="sobre">Sobre</string>
 
 </resources>

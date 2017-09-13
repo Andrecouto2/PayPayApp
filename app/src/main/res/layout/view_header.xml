@@ -445,7 +445,7 @@
                                 android:layout_marginStart="@dimen/default_margin_18_dp"
                                 android:layout_marginTop="@dimen/default_margin_20_dp"
                                 android:gravity="center"
-                                android:src="@drawable/ic_close"
+                                android:src="@drawable/ic_about"
                                 android:textSize="@dimen/default_text_24_sp" />
 
                             <TextView
@@ -457,6 +457,46 @@
                                 android:layout_marginTop="@dimen/default_margin_20_dp"
                                 android:layout_toEndOf="@+id/icon_fifth_menu_option"
                                 android:layout_toRightOf="@+id/icon_fifth_menu_option"
+                                android:text="@string/sobre"
+                                android:textColor="@color/gray_5B5149"
+                                android:textSize="@dimen/default_text_16_sp" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/size_1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="@color/colorPrimaryLight" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/relative_six_menu_option"
+                            style="@style/SelectableItemBackground"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/default_margin_64_dp"
+                            android:layout_below="@+id/relative_fifth_menu_option">
+
+                            <ImageView
+                                android:id="@+id/icon_six_menu_option"
+                                android:layout_width="@dimen/default_size_26_dp"
+                                android:layout_height="@dimen/default_size_24_dp"
+                                android:layout_marginBottom="@dimen/default_margin_20_dp"
+                                android:layout_marginLeft="@dimen/default_margin_18_dp"
+                                android:layout_marginStart="@dimen/default_margin_18_dp"
+                                android:layout_marginTop="@dimen/default_margin_20_dp"
+                                android:gravity="center"
+                                android:src="@drawable/ic_close"
+                                android:textSize="@dimen/default_text_24_sp" />
+
+                            <TextView
+                                android:id="@+id/text_view_six_menu_option"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/default_margin_20_dp"
+                                android:layout_marginStart="@dimen/default_margin_20_dp"
+                                android:layout_marginTop="@dimen/default_margin_20_dp"
+                                android:layout_toEndOf="@+id/icon_six_menu_option"
+                                android:layout_toRightOf="@+id/icon_six_menu_option"
                                 android:text="@string/sair"
                                 android:textColor="@color/gray_5B5149"
                                 android:textSize="@dimen/default_text_16_sp" />

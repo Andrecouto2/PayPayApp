@@ -1,6 +1,5 @@
 package br.com.andrecouto.paypay.view.custom;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
@@ -22,7 +21,6 @@ import javax.inject.Inject;
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.controller.HeaderController;
-
 import br.com.andrecouto.paypay.manager.UserManager;
 import br.com.andrecouto.paypay.util.AccessibilityUtils;
 import butterknife.ButterKnife;
@@ -121,7 +119,7 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
 
     @OnClick(R.id.relative_second_menu_option)
     public void secondMenuOptionClicked() {
-        //controller.secondMenuOptionClicked();
+
     }
 
     @OnClick(R.id.relative_third_menu_option)
@@ -134,11 +132,13 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
         headerHelper.goMe();
     }
 
-    /**
-     * Quinta opção do menu clicada.
-     */
     @OnClick(R.id.relative_fifth_menu_option)
     public void fifthMenuOptionClicked() {
+        headerHelper.goAbout();
+    }
+
+    @OnClick(R.id.relative_six_menu_option)
+    public void sixMenuOptionClicked() {
         headerHelper.logout();
         LoginManager.getInstance().logOut();
     }
