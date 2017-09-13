@@ -26,7 +26,7 @@ import br.com.andrecouto.paypay.util.AlertUtils;
 import br.com.andrecouto.paypay.util.PermissionUtils;
 import butterknife.ButterKnife;
 
-public class DiscoveryFragment extends BaseLoggedFragment implements OnMapReadyCallback,
+public class DiscoveryDashBoardFragment extends BaseLoggedFragment implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 

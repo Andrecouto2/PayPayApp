@@ -1,6 +1,7 @@
 package br.com.andrecouto.paypay.controller;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.animation.Animation;
@@ -14,8 +15,12 @@ import com.squareup.picasso.Picasso;
 
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
+import br.com.andrecouto.paypay.fragment.dashboard.ChatDashBoardFragment;
+import br.com.andrecouto.paypay.fragment.dashboard.DiscoveryDashBoardFragment;
+import br.com.andrecouto.paypay.fragment.dashboard.MeDashBoardFragment;
 import br.com.andrecouto.paypay.helper.ManagerHelper;
 import br.com.andrecouto.paypay.sessionmanager.SessionManager;
+import br.com.andrecouto.paypay.util.FragmentUtils;
 import br.com.andrecouto.paypay.util.TabBarUtils;
 import br.com.andrecouto.paypay.view.custom.CircleTransformation;
 import br.com.andrecouto.paypay.view.custom.HeaderInterface;
@@ -162,6 +167,21 @@ public class HeaderController {
 
     public void logout() {
         sessionManager.logoutUser();
+    }
+
+    public void goChat() {
+        FragmentUtils.replaceFragment( ((FragmentActivity) context).getSupportFragmentManager(), new ChatDashBoardFragment(), R.id.frame_home_container, true);
+        TabBarUtils.showTabBar(context);
+    }
+
+    public void goDiscovery() {
+        FragmentUtils.replaceFragment( ((FragmentActivity) context).getSupportFragmentManager(), new DiscoveryDashBoardFragment(), R.id.frame_home_container, true);
+        TabBarUtils.showTabBar(context);
+    }
+
+    public void goMe() {
+        FragmentUtils.replaceFragment( ((FragmentActivity) context).getSupportFragmentManager(), new MeDashBoardFragment(), R.id.frame_home_container, true);
+        TabBarUtils.showTabBar(context);
     }
 
 }

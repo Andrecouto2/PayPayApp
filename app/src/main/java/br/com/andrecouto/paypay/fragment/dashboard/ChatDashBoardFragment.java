@@ -14,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ChatFragment extends BaseLoggedFragment {
+public class ChatDashBoardFragment extends BaseLoggedFragment {
 
     @BindView(R.id.header_view)
     HeaderView headerView;

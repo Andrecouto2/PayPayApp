@@ -20,7 +20,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.andrecouto.paypay.R;
-import br.com.andrecouto.paypay.activity.BaseLoggedActivity;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.controller.HeaderController;
 
@@ -103,7 +102,7 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
         relativeMenuProfileDetails = (RelativeLayout) findViewById(R.id.relative_menu_profile_details);
         relativeHeader = (RelativeLayout) findViewById(R.id.relative_header);
         showNotificationIcon(true);
-        headerHelper.init(this,userManager.getUser(), context);
+        headerHelper.init(this, userManager.getUser(), context);
     }
 
     /*@OnClick(R.id.text_view_search)
@@ -117,7 +116,7 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
 
     @OnClick(R.id.relative_first_menu_option)
     public void firstMenuOptionClicked() {
-        //controller.firstMenuOptionClicked();
+       headerHelper.goChat();
     }
 
     @OnClick(R.id.relative_second_menu_option)
@@ -127,12 +126,12 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
 
     @OnClick(R.id.relative_third_menu_option)
     public void thirdMenuOptionClicked() {
-        ///controller.thirdMenuOptionClicked();
+        headerHelper.goDiscovery();
     }
 
     @OnClick(R.id.relative_fourth_menu_option)
     public void fourthMenuOptionClicked() {
-        //controller.fourthMenuOptionClicked();
+        headerHelper.goMe();
     }
 
     /**
@@ -140,7 +139,6 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
      */
     @OnClick(R.id.relative_fifth_menu_option)
     public void fifthMenuOptionClicked() {
-        //((BaseLoggedActivity ) context).finish();
         headerHelper.logout();
         LoginManager.getInstance().logOut();
     }
