@@ -4,7 +4,10 @@ package br.com.andrecouto.paypay.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.crashlytics.android.Crashlytics;
+
 import br.com.andrecouto.kotlin.chatlib.socketio.listener.AppSocketListener;
+import io.fabric.sdk.android.Fabric;
 
 
 public class AppApplication extends Application {
@@ -14,6 +17,7 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         appContext = getApplicationContext();
         mComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule())
