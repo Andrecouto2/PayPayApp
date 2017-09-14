@@ -55,7 +55,6 @@
             android:name="br.com.andrecouto.kotlin.chatlib.activity.ChatMainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"></activity>
-
         <service
             android:name="br.com.andrecouto.kotlin.chatlib.socketio.service.SocketIOService">
             <intent-filter>

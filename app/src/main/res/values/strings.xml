@@ -3,45 +3,30 @@
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
+    <string name="prompt_email" translatable="false">E-mail</string>
+    <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-    <string name="hint_login">Login</string>
-    <string name="hint_password">Senha</string>
-    <string name="ordem_de_servi_o">Ordem de Serviço</string>
-    <string name="circular">Circular</string>
-    <string name="funcion_rio">Funcionário</string>
-    <string name="ok">OK</string>
-    <string name="about_dialog_text">Desenvolvedor: André Couto\nVersão %s</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="about_dialog_text">Developer: André Couto\nVersion %s</string>
 
-    <string name="header_avatar_label">olá, %1$s</string>
-    <string name="header_email">E-mail: %1$s</string>
-    <string name="header_last_access">último acesso foi em  %1$s às %2$s</string>
-    <string name="menu_profile_option_text_first">editar minha foto</string>
-    <string name="menu_profile_option_text_first_with_picture">alterar foto</string>
-
+    <string name="header_avatar_label">hello, %1$s</string>
+    <string name="header_email" translatable="false">E-mail: %1$s</string>
     //facebook login
-    <string name="facebook_app_id">1667532429926734</string>
-    <string name="fb_login_protocol_scheme">fb1667532429926734</string>
+    <string name="facebook_app_id" translatable="false">1667532429926734</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb1667532429926734</string>
     <string name="chat">Chat</string>
-    <string name="contatos">Contatos</string>
-    <string name="descobrir">Descobrir</string>
-    <string name="eu">Eu</string>
-    <string name="sair">Sair</string>
-    <string name="entrar">ENTRAR</string>
-    <string name="cpf">cpf</string>
-    <string name="telefone">telefone</string>
-    <string name="sobre">Sobre</string>
+    <string name="contatos">Contacts</string>
+    <string name="descobrir">Discover</string>
+    <string name="eu">Me</string>
+    <string name="sair">Log out</string>
+    <string name="entrar">Log in</string>
+    <string name="cpf" translatable="false">CPF</string>
+    <string name="telefone">phone</string>
+    <string name="sobre">About</string>
 
 </resources>

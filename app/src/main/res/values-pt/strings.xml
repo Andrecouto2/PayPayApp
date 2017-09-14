@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PayPay</string>
+    <string name="about_dialog_text">"Desenvolvedor: AndréCouto\\n Versão %s "</string>
+    <string name="action_sign_in">Faça login ou registre</string>
+    <string name="action_sign_in_short">Login</string>
+    <string name="chat">Chat</string>
+    <string name="contatos">Contatos</string>
+    <string name="descobrir">Descobrir</string>
+    <string name="entrar">Entrar</string>
+    <string name="error_incorrect_password">Esta senha está incorreta</string>
+    <string name="error_invalid_email">Email inválido</string>
+    <string name="error_invalid_password">A Senha é muito curto</string>
+    <string name="eu">Eu</string>
+    <string name="header_avatar_label">olá, %1$s</string>
+    <string name="header_email">E-mail: %1$s</string>
+    <string name="prompt_password">Senha</string>
+    <string name="sair">Sair</string>
+    <string name="sobre">Sobre</string>
+    <string name="telefone">telefone</string>
+    <string name="title_activity_login">Entrar</string>
+</resources>

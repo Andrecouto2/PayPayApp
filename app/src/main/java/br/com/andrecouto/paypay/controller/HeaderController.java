@@ -50,21 +50,17 @@ public class HeaderController {
 
     private void setupAvatar() {
         String firstName = StringUtils.getFirstWordAndCapitalize(user.getNome()).split(" ")[0];
-        //String lastDate = DateUtils.formatDate(DateUtils.SIMPLE_DATE_FORMAT_MINI_OUTPUT, DateUtils.formatDate(application.getAuthenticationResponse().getDateLastDateAccess()));
-        // String lastHour = application.getAuthenticationResponse().getDateLastHourAccess().substring(0, 5);
-        //String lastAccess = baseActivity.getString(R.string.header_last_access, lastDate, lastHour);
-        headerInterface.setAvatarText(context.getString(R.string.header_avatar_label, firstName), StringUtils.getFirstAndLastName(user.getNome()),
-                context.getString(R.string.header_email, user.getEmail()),
-                "", "");
+        String email = user.getEmail();
 
+        headerInterface.setAvatarText(context.getString(R.string.header_avatar_label, firstName), StringUtils.getFirstAndLastName(user.getNome()),
+                context.getString(R.string.header_email, email),
+                "", "");
         headerInterface.setHeaderAccessibility(StringUtils.getFirstAndLastName(user.getNome()), user.getCelular(), user.getCelular());
 
-        //Configura as iniciais do nome do usuário
         headerInterface.getAvatarFirstLettersTextView().setText(ManagerHelper.nameInitialLettters(user.getNome()));
         headerInterface.getAvatarFirstLettersMenuProfileTextView().setText(ManagerHelper.nameInitialLettters(user.getNome()));
 
         setImage();
-
     }
 
     private void setImage() {
@@ -98,7 +94,7 @@ public class HeaderController {
                     @Override
                     public void onError() {
                         if (setAvatarClickText) {
-                            headerInterface.setAvatarClickText(context.getString(R.string.menu_profile_option_text_first));
+                            //headerInterface.setAvatarClickText(context.getString(R.string.menu_profile_option_text_first));
                         }
                         //imageView.setVisibility(View.GONE);
                     }
