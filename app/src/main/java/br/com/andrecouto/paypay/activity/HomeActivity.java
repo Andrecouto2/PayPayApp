@@ -5,6 +5,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import java.util.List;
+
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.fragment.dashboard.ChatDashBoardFragment;
@@ -49,6 +51,16 @@ public class HomeActivity extends BaseLoggedActivity {
 
     };
 
-
+    /*@Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grants) {
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        if (fragments != null) {
+            for (Fragment fragment : fragments) {
+                if (fragment != null) {
+                    fragment.onRequestPermissionsResult(requestCode, permissions, grants);
+                }
+            }
+        }
+    }*/
 
 }

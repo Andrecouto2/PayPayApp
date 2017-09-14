@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
@@ -24,17 +26,26 @@ import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.fragment.BaseLoggedFragment;
 import br.com.andrecouto.paypay.util.AlertUtils;
 import br.com.andrecouto.paypay.util.PermissionUtils;
+import br.com.andrecouto.paypay.view.custom.HeaderView;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DiscoveryDashBoardFragment extends BaseLoggedFragment implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
+    private static final int ACCESSIBILITY_INIT_FOCUS = 2000;
+    @BindView(R.id.header_view)
+    HeaderView headerView;
     private GoogleMap mMap;
-
     private GoogleApiClient mGoogleApiClient;
-
     private LocationRequest mLocationRequest;
+    String[] permissoes = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+    };
+
 
     @Nullable
     @Override
@@ -42,6 +53,7 @@ public class DiscoveryDashBoardFragment extends BaseLoggedFragment implements On
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_discovery, container, false);
         ButterKnife.bind(this, v);
+        headerView.setHeaderAccessibilityFocus(ACCESSIBILITY_INIT_FOCUS);
 
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addConnectionCallbacks(this)
@@ -59,12 +71,6 @@ public class DiscoveryDashBoardFragment extends BaseLoggedFragment implements On
         mMapFragment.getMapAsync(this);
 
         // Solicita as permissões
-        String[] permissoes = new String[]{
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_FINE_LOCATION,
-        };
-
         PermissionUtils.validate(getActivity(), 0, permissoes);
 
         return v;
@@ -72,9 +78,13 @@ public class DiscoveryDashBoardFragment extends BaseLoggedFragment implements On
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+        if (PermissionUtils.hasPermission(getActivity(), permissoes)) {
+            setLocation();
+        }
+    }
 
+    private void setLocation() {
         Location location = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-
         if (location == null) {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         } else {
@@ -119,12 +129,12 @@ public class DiscoveryDashBoardFragment extends BaseLoggedFragment implements On
 
         for (int result : grantResults) {
             if (result == PackageManager.PERMISSION_DENIED) {
-                // Alguma permissão foi negada, agora é com você :-)
-                AlertUtils.createAlertDialog(getActivity(), "Permissões", "Necessário ativação.");
+                // Alguma permissão foi negada
+                Toast.makeText(getActivity(), "Necessário ativação.", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
-        // Se chegou aqui está OK :-)
+        setLocation();
     }
 
     private void handleNewLocation(Location location) {
