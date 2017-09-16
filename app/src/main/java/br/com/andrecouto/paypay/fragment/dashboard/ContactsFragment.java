@@ -1,15 +1,16 @@
 package br.com.andrecouto.paypay.fragment.dashboard;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.AsyncTask;
+import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
@@ -38,8 +39,11 @@ public class ContactsFragment extends BaseLoggedFragment {
     @BindView(R.id.search_view_contacts)
     protected SearchView search;
     protected ContactsAdapter contactsAdapter;
+    protected List<Contacts> contactsList;
     protected String[] permission = new String[] {
-            Manifest.permission.READ_CONTACTS };
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.CALL_PHONE};
+
 
     @Nullable
     @Override
@@ -47,7 +51,8 @@ public class ContactsFragment extends BaseLoggedFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_contacts, container, false);
         ButterKnife.bind(this, v);
-
+        registerForContextMenu(recyclerViewContacts);
+        setHasOptionsMenu(true);
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -67,11 +72,13 @@ public class ContactsFragment extends BaseLoggedFragment {
     }
 
     private void setContactList() {
-        if (PermissionUtils.hasPermission(getActivity(), permission)) {
+        if (PermissionUtils.hasPermission(getActivity(), new String[] {
+                Manifest.permission.READ_CONTACTS})) {
             new ContactsAsyncTask(getActivity(), new Action() {
                 @Override
                 public void getResult(List<Contacts> result) {
                     if (result != null && result.size() > 0) {
+                        contactsList = result;
                         contactsAdapter = new ContactsAdapter(getActivity(), result);
                         recyclerViewContacts.setLayoutManager(new LinearLayoutManager(getActivity()));
                         recyclerViewContacts.setAdapter(contactsAdapter);
@@ -93,6 +100,35 @@ public class ContactsFragment extends BaseLoggedFragment {
             }
         }
         setContactList();
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getActivity().getMenuInflater().inflate(R.menu.menu_contacts, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int itemPosition = contactsAdapter.getPosition();
+        switch (item.getItemId()) {
+            case R.id.menu_call:
+                if (PermissionUtils.hasPermission(getActivity(), new String[]{
+                        Manifest.permission.CALL_PHONE})) {
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    callIntent.setData(Uri.parse("tel:" + contactsList.get(itemPosition).getPhone()));
+                    startActivity(callIntent);
+                }
+                break;
+            case R.id.menu_share:
+                Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
+                whatsappIntent.setType("text/plain");
+                whatsappIntent.setPackage("com.whatsapp");
+                whatsappIntent.putExtra(Intent.EXTRA_TEXT, contactsList.get(itemPosition).getPhone());
+                startActivity(whatsappIntent);
+                break;
+        }
+        return super.onContextItemSelected(item);
     }
 
 }

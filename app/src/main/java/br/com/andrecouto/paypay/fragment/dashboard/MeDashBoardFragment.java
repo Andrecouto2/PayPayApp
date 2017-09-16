@@ -30,22 +30,6 @@ public class MeDashBoardFragment extends BaseLoggedFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.fragment_me, container, false);
         ButterKnife.bind(this, v);
-        headerView.setHeaderMenuProfileListener(new HeaderView.HeaderMenuProfileListener() {
-            @Override
-            public void onToggle(boolean isOpen) {
-                if (AccessibilityUtils.isAccessibilityActive(getContext())) {
-                    if (isOpen) {
-                       /* ViewCompat.setImportantForAccessibility(recyclerViewCards, ViewCompat
-                                .IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);*/
-                    } else {
-                       /* ViewCompat.setImportantForAccessibility(recyclerViewCards, ViewCompat
-                                .IMPORTANT_FOR_ACCESSIBILITY_NO);*/
-
-                    }
-                }
-
-            }
-        });
         headerView.setHeaderAccessibilityFocus(ACCESSIBILITY_INIT_FOCUS);
         return v;
     }

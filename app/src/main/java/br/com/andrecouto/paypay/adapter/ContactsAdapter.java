@@ -2,6 +2,8 @@ package br.com.andrecouto.paypay.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +23,17 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
 
     private List<Contacts> mainInfo;
     private ArrayList<Contacts> arraylist;
+    public int position;
     Context context;
 
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
 
     public ContactsAdapter(Context context, List<Contacts> mainInfo) {
         this.mainInfo = mainInfo;
@@ -31,19 +42,31 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         this.arraylist.addAll(mainInfo);
     }
 
-    public class ContactsListViewHolder extends RecyclerView.ViewHolder {
+    public class ContactsListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnCreateContextMenuListener{
 
         ImageView imageViewUserImage;
         TextView textViewShowName;
         TextView textViewPhoneNumber;
 
-        public ContactsListViewHolder(View itemView) {
-            super(itemView);
-
+        public ContactsListViewHolder(View v) {
+            super(v);
             textViewShowName = (TextView) itemView.findViewById(R.id.txt_contact_name);
             textViewPhoneNumber = (TextView) itemView.findViewById(R.id.txt_number);
             imageViewUserImage = (ImageView) itemView.findViewById(R.id.img_pic);
+            v.setClickable(true);
+            v.setOnClickListener(this);
+            //set onContextListener
+            v.setOnCreateContextMenuListener(this);
+        }
 
+        @Override
+        public void onClick(View view) {
+
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenuInfo contextMenuInfo) {
+            contextMenu.setHeaderTitle("Selecione a ação");
         }
     }
 
@@ -55,7 +78,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
     }
 
     @Override
-    public void onBindViewHolder(ContactsListViewHolder holder, int position) {
+    public void onBindViewHolder(ContactsListViewHolder holder, final int position) {
         String imagepath = mainInfo.get(position).getImagepath();
         if (imagepath == null) {
             Picasso.with(context).load(R.drawable.person_contacts).into(holder.imageViewUserImage);
@@ -64,6 +87,14 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         }
         holder.textViewShowName.setText(mainInfo.get(position).getName());
         holder.textViewPhoneNumber.setText(mainInfo.get(position).getPhone());
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                setPosition(position);
+                return false;
+            }
+
+        });
     }
 
     @Override
@@ -86,5 +117,6 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         }
         notifyDataSetChanged();
     }
+
 }
 

@@ -12,10 +12,10 @@
     <string name="error_incorrect_password">This password is incorrect</string>
 
     <string name="ok" translatable="false">OK</string>
-    <string name="about_dialog_text">Developer: André Couto\nVersion %s</string>
+    <string name="about_dialog_text">Developer: André Couto\n Version %s</string>
 
     <string name="header_avatar_label">hello, %1$s</string>
-    <string name="header_email" translatable="false">E-mail: %1$s</string>
+    <string name="header_email">E-mail: %1$s</string>
     //facebook login
     <string name="facebook_app_id" translatable="false">1667532429926734</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb1667532429926734</string>
@@ -32,5 +32,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search">Search..</string>
+    <string name="compartilhar">Share</string>
+    <string name="call">Call</string>
 
 </resources>

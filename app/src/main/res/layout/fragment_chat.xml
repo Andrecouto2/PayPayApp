@@ -28,7 +28,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/pink_F99398"
+                android:background="@color/green_45A9BB"
                 android:padding="@dimen/default_text_14_sp">
 
                 <TextView
@@ -39,7 +39,6 @@
                     android:text="Chat"
                     android:textColor="@color/white"
                     android:textSize="@dimen/default_text_16_sp"/>
-
 
             </RelativeLayout>
 

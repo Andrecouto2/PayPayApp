@@ -3,6 +3,7 @@ package br.com.andrecouto.paypay.activity;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import java.util.List;
@@ -52,7 +53,7 @@ public class HomeActivity extends BaseLoggedActivity {
 
     };
 
-    /*@Override
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grants) {
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
         if (fragments != null) {
@@ -62,6 +63,6 @@ public class HomeActivity extends BaseLoggedActivity {
                 }
             }
         }
-    }*/
+    }
 
 }

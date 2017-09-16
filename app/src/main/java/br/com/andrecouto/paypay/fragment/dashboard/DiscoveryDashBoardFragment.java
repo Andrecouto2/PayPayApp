@@ -130,7 +130,7 @@ public class DiscoveryDashBoardFragment extends BaseLoggedFragment implements On
         for (int result : grantResults) {
             if (result == PackageManager.PERMISSION_DENIED) {
                 // Alguma permissão foi negada
-                Toast.makeText(getActivity(), "Necessário ativação.", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Necessário ativação.", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
