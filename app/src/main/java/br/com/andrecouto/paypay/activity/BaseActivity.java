@@ -158,7 +158,9 @@ abstract class BaseActivity extends AppCompatActivity implements KeyboardListene
 
     @Override
     public void onBackPressed() {
-         onBackPressedListener.onBackPressed();
+         if (onBackPressedListener != null) {
+             onBackPressedListener.onBackPressed();
+         }
     }
 
     /**
