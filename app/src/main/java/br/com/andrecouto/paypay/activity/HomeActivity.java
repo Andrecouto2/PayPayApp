@@ -10,6 +10,7 @@ import java.util.List;
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.fragment.dashboard.ChatDashBoardFragment;
+import br.com.andrecouto.paypay.fragment.dashboard.ContactsFragment;
 import br.com.andrecouto.paypay.fragment.dashboard.DiscoveryDashBoardFragment;
 import br.com.andrecouto.paypay.fragment.dashboard.MeDashBoardFragment;
 import br.com.andrecouto.paypay.util.FragmentUtils;
@@ -37,7 +38,7 @@ public class HomeActivity extends BaseLoggedActivity {
                     FragmentUtils.replaceFragment(getSupportFragmentManager(), new ChatDashBoardFragment(), R.id.frame_home_container, true);
                     return true;
                 case R.id.navigation_contacts:
-
+                    FragmentUtils.replaceFragment(getSupportFragmentManager(), new ContactsFragment(), R.id.frame_home_container, true);
                     return true;
                 case R.id.navigation_compass:
                     FragmentUtils.replaceFragment(getSupportFragmentManager(), new DiscoveryDashBoardFragment(), R.id.frame_home_container, true);

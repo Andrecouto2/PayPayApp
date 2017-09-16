@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:background="?android:attr/selectableItemBackground"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin_5_dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/img_pic"
+            android:layout_width="@dimen/default_margin_80_dp"
+            android:layout_height="@dimen/default_margin_80_dp"
+            android:clickable="false"
+            android:src="@drawable/person_contacts" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/default_margin_5_dp"
+            android:layout_weight="2.6"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/default_margin_10_dp">
+
+            <TextView
+                android:id="@+id/txt_contact_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="User name"
+                android:textSize="@dimen/default_text_18_sp" />
+
+            <TextView
+                android:id="@+id/txt_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_5_dp"
+                tools:text="Phone no."
+                android:textSize="@dimen/default_text_18_sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

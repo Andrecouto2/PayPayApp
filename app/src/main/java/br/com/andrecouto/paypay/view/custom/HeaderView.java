@@ -10,14 +10,10 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.facebook.login.LoginManager;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.controller.HeaderController;
@@ -79,7 +75,6 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
     public void init() {
         View v = inflate(getContext(), R.layout.view_header, this);
         ButterKnife.bind(this,v);
-        //iconFilter = (TextIconView) findViewById(R.id.text_view_filter);
         iconOpenClose = (ImageView) findViewById(R.id.img_view_open_close);
         imageAvatar = (ImageView) findViewById(R.id.image_view_avatar_picture);
         imageAvatarMenuProfile = (ImageView) findViewById(R.id.image_view_menu_profile_avatar);
@@ -99,18 +94,8 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
         viewMenuProfileAnimate = (RelativeLayout) findViewById(R.id.relative_menu_profile_animate);
         relativeMenuProfileDetails = (RelativeLayout) findViewById(R.id.relative_menu_profile_details);
         relativeHeader = (RelativeLayout) findViewById(R.id.relative_header);
-        showNotificationIcon(true);
         headerHelper.init(this, userManager.getUser(), context);
     }
-
-    /*@OnClick(R.id.text_view_search)
-    protected void clickSearch() {
-        if (listener != null) {
-            listener.onSearchClick();
-        } else {
-            callDefaultAppSearchView();
-        }
-    }*/
 
     @OnClick(R.id.relative_first_menu_option)
     public void firstMenuOptionClicked() {
@@ -118,9 +103,7 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
     }
 
     @OnClick(R.id.relative_second_menu_option)
-    public void secondMenuOptionClicked() {
-
-    }
+    public void secondMenuOptionClicked() { headerHelper.goContacts(); }
 
     @OnClick(R.id.relative_third_menu_option)
     public void thirdMenuOptionClicked() {
@@ -154,9 +137,6 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
         accessibilityForNoContextViews(false);
     }
 
-    /**
-     * Clique em voltar.
-     */
     @OnClick(R.id.img_view_menu_profile_back)
     public void backClicked() {
         backClickMenuProfile();
@@ -170,65 +150,29 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
         }
     }
 
-    /**
-     * Exibe o filtro.
-     */
     public void showIconFilter() {
 
         iconFilter.setVisibility(View.VISIBLE);
     }
 
-    /**
-     * Esconde o filtro.
-     */
     public void hideIconFilter() {
         iconFilter.setVisibility(View.GONE);
     }
 
-    /**
-     * Retorna altura do header
-     */
     public int getHeightHeader() {
         return relativeHeader.getHeight();
     }
 
-
-
-    /**
-     * Ao receber resultado através da activity (Usado para o ciclo de tirar foto).
-     *
-     * @param requestCode codigo da requisição
-     * @param resultCode  codigo do resultado
-     * @param data        informação
-     */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
     }
 
-    /**
-     * Sets header touch listener.
-     *
-     * @param headerTouchListener the header touch listener
-     */
     public void setHeaderTouchListener(HeaderTouchListener headerTouchListener) {
         this.headerTouchListener = headerTouchListener;
     }
 
-    /**
-     * Sets header menu profile listener.
-     *
-     * @param headerMenuProfileListener the header menu profile listener
-     */
     public void setHeaderMenuProfileListener(HeaderMenuProfileListener headerMenuProfileListener) {
         this.headerMenuProfileListener = headerMenuProfileListener;
-    }
-
-    /**
-     * Chama a tela padrão de busca da app
-     */
-    public void callDefaultAppSearchView() {
-
-        //controller.onSearchIconClicked();
     }
 
     @Override
@@ -305,7 +249,6 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
         return textInitialsNameAvatarMenuProfile;
     }
 
-
     @Override
     public void setAnimateMenuProfile(Animation animation) {
         viewMenuProfileAnimate.clearAnimation();
@@ -316,10 +259,6 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
     public void setAnimateMenuSecondLevel(Animation animation) {
          //viewMenuSecondLevelProfile.clearAnimation();
         //viewMenuSecondLevelProfile.startAnimation(animation);
-    }
-
-    public void start() {
-
     }
 
     @Override
@@ -342,28 +281,15 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
         viewMenuProfileAnimate.setVisibility(visibility);
     }
 
-    /**
-     * Verifica se o menu está aberto.
-     *
-     * @return true /false
-     */
     public boolean isMenuProfileOpen() {
         return viewMenuProfile.getVisibility() == VISIBLE;
     }
 
-    /**
-     * Verifica se o menu segundo nivel está aberto.
-     *
-     * @return true /false
-     */
     public boolean isMenuSecondLevelOpen() {
         //return viewMenuSecondLevelProfile.getVisibility() == VISIBLE;
         return false;
     }
 
-    /**
-     * Clique em voltar no menu de perfil.
-     */
     public void backClickMenuProfile() {
         headerHelper.animateMenuProfileOut();
         if (headerMenuProfileListener != null) {
@@ -386,67 +312,15 @@ public class HeaderView extends RelativeLayout implements HeaderInterface {
         return viewMenuProfile.getVisibility() == VISIBLE;
     }
 
-    /**
-     * Trata o clique no badge (sino) da central de notificações
-     *
-     * @param fragmentManager O FragmentManager
-     */
     public void handleNotificationIconClick(FragmentManager fragmentManager) {
         //iconNotification.setOnClickListener(NotificationCenterHelper.handleBadgeClick(fragmentManager));
     }
 
-    /**
-     * Mostra ou esconde a badge (sino) da central de notificações
-     *
-     * @param visible mostrar ou esconder
-     */
-    public void showNotificationIcon(boolean visible) {
-        /*if (!NotificationCentralInternal.getLibraryDisabled() && visible) {
-            iconNotification.setVisibility(VISIBLE);
-        } else {
-            iconNotification.setVisibility(GONE);
-        }*/
-    }
-
-    /**
-     * Interface do listener.
-     */
-    public interface Listener {
-        /**
-         * Ouvinte do filtro clicado.
-         */
-        void onFilterClick();
-
-        /**
-         * Ouvinte da busca clicado.
-         */
-        void onSearchClick();
-    }
-
-    /**
-     * Interface do header touch.
-     */
     public interface HeaderTouchListener {
-        /**
-         * ao clicar.
-         */
         void onTouch();
     }
 
-    /**
-     * Interface do menu perfil.
-     */
     public interface HeaderMenuProfileListener {
-        /**
-         * ao trocar estado.
-         *
-         * @param isOpen está aberto (verdadeiro/falso)
-         */
         void onToggle(boolean isOpen);
     }
-
-
-
-
-
 }

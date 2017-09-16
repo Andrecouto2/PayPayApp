@@ -1,7 +1,11 @@
 package br.com.andrecouto.paypay.fragment.dashboard;
 
+import android.content.ContentResolver;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +28,7 @@ public class MeDashBoardFragment extends BaseLoggedFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View v = inflater.inflate(R.layout.employee_dashboard_fragment, container, false);
+        View v = inflater.inflate(R.layout.fragment_me, container, false);
         ButterKnife.bind(this, v);
         headerView.setHeaderMenuProfileListener(new HeaderView.HeaderMenuProfileListener() {
             @Override
@@ -50,6 +54,5 @@ public class MeDashBoardFragment extends BaseLoggedFragment {
     public String tag() {
         return getTag();
     }
-
 
 }
