@@ -30,7 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class ContactsFragment extends BaseLoggedFragment {
+public class ContactsDashBoardFragment extends BaseLoggedFragment {
 
     @BindView(R.id.header_view)
     protected HeaderView headerView;
