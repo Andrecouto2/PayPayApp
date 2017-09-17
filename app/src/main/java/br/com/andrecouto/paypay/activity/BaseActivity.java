@@ -41,7 +41,6 @@ abstract class BaseActivity extends AppCompatActivity implements KeyboardListene
     private boolean keyboardAlive;
     private LoadingDialog ld = new LoadingDialog();
 
-
     private ViewTreeObserver.OnGlobalLayoutListener keyboardLayoutListener = new ViewTreeObserver
             .OnGlobalLayoutListener() {
         @Override
@@ -99,7 +98,7 @@ abstract class BaseActivity extends AppCompatActivity implements KeyboardListene
         super.onPause();
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             if (getParentActivityName() != null) {
@@ -110,7 +109,7 @@ abstract class BaseActivity extends AppCompatActivity implements KeyboardListene
             return true;
         }
         return false;
-    }
+    }*/
 
     String getParentActivityName() {
         return NavUtils.getParentActivityName(this);
