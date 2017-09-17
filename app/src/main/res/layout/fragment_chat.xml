@@ -28,7 +28,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/green_45A9BB"
+                android:background="@color/azul_icon"
                 android:padding="@dimen/default_text_14_sp">
 
                 <TextView

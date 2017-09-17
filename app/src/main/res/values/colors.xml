@@ -70,5 +70,6 @@
     <color name="yellow_FFFF00">#FFFF00</color>
     <color name="ripple_color">#14585149</color>
     <color name="azul_facebook">#3b5998</color>
+    <color name="azul_icon">#3056D3</color>
 
 </resources>

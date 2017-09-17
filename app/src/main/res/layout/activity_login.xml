@@ -50,7 +50,7 @@
                 android:layout_marginBottom="@dimen/default_margin_16_dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_refund_login"/>
+                android:src="@drawable/ic_pay"/>
 
             <RelativeLayout
                 android:id="@+id/relative_login_body_container"
