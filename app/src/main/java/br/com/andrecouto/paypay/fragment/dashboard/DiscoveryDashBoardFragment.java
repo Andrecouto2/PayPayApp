@@ -78,7 +78,8 @@ public class DiscoveryDashBoardFragment extends BaseLoggedFragment implements On
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        if (PermissionUtils.hasPermission(getActivity(), permissoes)) {
+        if (PermissionUtils.hasPermission(getActivity(), new String[]{
+                Manifest.permission.ACCESS_FINE_LOCATION})) {
             setLocation();
         }
     }
@@ -130,8 +131,11 @@ public class DiscoveryDashBoardFragment extends BaseLoggedFragment implements On
         for (int result : grantResults) {
             if (result == PackageManager.PERMISSION_DENIED) {
                 // Alguma permissão foi negada
-                //Toast.makeText(getActivity(), "Necessário ativação.", Toast.LENGTH_SHORT).show();
-                return;
+                if (!PermissionUtils.hasPermission(getActivity(), new String[]{
+                        Manifest.permission.ACCESS_FINE_LOCATION})) {
+                    Toast.makeText(getActivity(), "Necessário ativação da localização.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
         }
         setLocation();

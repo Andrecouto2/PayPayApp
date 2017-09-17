@@ -95,8 +95,11 @@ public class ContactsFragment extends BaseLoggedFragment {
         for (int result : grantResults) {
             if (result == PackageManager.PERMISSION_DENIED) {
                 // Alguma permissão foi negada
-                Toast.makeText(getActivity(), "Necessário ativação.", Toast.LENGTH_SHORT).show();
-                return;
+                if (!PermissionUtils.hasPermission(getActivity(), new String[] {
+                        Manifest.permission.READ_CONTACTS})) {
+                    Toast.makeText(getActivity(), "Necessário ativação leitura de contatos.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
         }
         setContactList();

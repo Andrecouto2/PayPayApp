@@ -53,7 +53,7 @@ public class HomeActivity extends BaseLoggedActivity {
 
     };
 
-    @Override
+    /*@Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grants) {
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
         if (fragments != null) {
@@ -63,6 +63,6 @@ public class HomeActivity extends BaseLoggedActivity {
                 }
             }
         }
-    }
+    }*/
 
 }

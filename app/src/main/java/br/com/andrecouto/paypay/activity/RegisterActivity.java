@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import br.com.andrecouto.paypay.R;
 import br.com.andrecouto.paypay.application.AppApplication;
 import br.com.andrecouto.paypay.entity.User;
-import br.com.andrecouto.paypay.util.AlertUtils;
 import br.com.andrecouto.paypay.viewmodel.UserViewModel;
 import butterknife.BindView;
 import butterknife.ButterKnife;
